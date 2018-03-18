@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/font.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <!-- span需要脱离文档流，注意float不是真正脱离文档流 -->
+        <span class="lnr lnr-arrow-left-circle ch"></span>
+        <p>123</p>
+    </header>
+    <section class="main">
+        <nav id="wrapper">
+            <ul>
+                <li data-id='1'>铅笔</li>
+                <li data-id='2'>铅笔</li>
+                <li data-id='3'>铅笔</li>
+                <li data-id='4'>铅笔</li>
+                <li data-id='5'>铅笔</li>
+                <li data-id='6'>铅笔</li>
+                <li data-id='7'>铅笔</li>
+                <li data-id='8'>铅笔</li>
+                <li data-id='9'>铅笔</li>
+                <li data-id='10'>铅笔</li>
+                <li data-id='11'>铅笔</li>
+                <li data-id='12'>铅笔</li>
+            </ul>
+        </nav>
+        <div id="shopList" class="move">
+            
+        </div>
+    </section>
+    <footer class="footer"></footer>
+
+    <script type="text/javascript" src="./assets/js/iscroll.js"></script>
+    <script type="text/javascript" src="./assets/js/jquery-1.11.3.min.js"></script>
+    <!-- 
+    // 商品列表接口
+    // 地址：http://192.168.2.123/mobile-demo/server/list.php
+    // 类型：GET
+    // 参数：id <string>
+    // 返回值：json 
+    -->
+    <script type="text/javascript">
+        //全局变量
+        var curIndex = 0;
+        var liList = document.querySelectorAll("#wrapper li");
+
+        //iScroll
+        var wrapper = document.getElementById('wrapper');
+        var myScroll = new IScroll(wrapper,{
+           scrollX: true, 
+           scrollY: false, 
+           mouseWheel: true,
+           click: true
+        });
+
+        //事件委派
+        document.getElementById('wrapper').onclick = function(ev){
+            var oTarget = ev.target;
+            if(oTarget.nodeName == 'LI'){
+                myScroll.scrollToElement(oTarget,1200,null,null,IScroll.utils.ease.elastic);
+                curIndex = $(oTarget).index();
+                cutStyle();
+                getData($(oTarget).attr('data-id'));
+            }
+        }
+
+
+        //ajax
+        var getData = function(Str){
+            $.ajax({
+                type: 'GET',
+                url: 'http://192.168.2.123/mobile-demo/server/list.php',
+                data: {
+                    id:Str
+                },
+                dataType: 'json'
+            }).done(function(data){
+                console.log(data.info);
+                if(data.errCode == 1){
+                    insertData(data.info);
+                    $("#shopList").removeClass('move');
+                } else {
+                    console.log(data.errMsg);
+                }
+            }).fail(function(){});
+        };
+
+        var insertData = function(arr){
+            var str = "<ul>";
+            for(var i=0;i<arr.length;i++){
+                var tem = [
+                    '<li>',
+                        '<a src="'+ arr[i].link_url +'">',
+                            '<div class="listPic">',
+                                '<img src="'+ arr[i].img_url +'">',
+                            '</div>',
+                            '<div class="listTitle">',
+                                '<h5>'+ arr[i].title +'</h5>',
+                                '<em>'+ arr[i].price +'</em>',
+                            '</div>',
+                        '</a>',
+                    '</li>'
+                ];
+                str += tem.join('');
+            }
+            str += "</ul>";
+            console.log(str);
+            $("#shopList").html(str);
+        }
+        
+
+        //改变样式
+        var cutStyle = function(){
+            $(liList[curIndex]).addClass('selected').siblings().removeClass('selected');
+        }
+
+
+        cutStyle();
+        getData(0);
+    </script>
+</body>
+
+</html>

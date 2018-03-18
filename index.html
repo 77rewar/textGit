@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/font.css">
+    <link rel="stylesheet" href="./assets/css/swiper.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <!-- span需要脱离文档流，注意float不是真正脱离文档流 -->
+        <span class="lnr lnr-arrow-left-circle ch"></span>
+        <p>123</p>
+    </header>
+    <section class="main">
+        <!-- Swiper -->
+        <div class="swiper-container swiper-container-a">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./assets/images/pic-01.jpg"></div>
+                <div class="swiper-slide"><img src="./assets/images/pic-01.jpg"></div>
+                <div class="swiper-slide"><img src="./assets/images/pic-01.jpg"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- 文字 -->
+        <div class="l1">
+            <h3 class="title"><a>当儿子问：“妈妈，你为什么要我努力读书？”这回 答是我见过最赞的</a>
+                <p class="time">2017-11-26</p>
+            </h3>
+            <a href="#">
+                <ul class="img-list">
+                    <li><img src="./assets/images/pic-02.jpg"></li>
+                    <li><img src="./assets/images/pic-02.jpg"></li>
+                    <li><img src="./assets/images/pic-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+        <div class="l1">
+            <h3 class="title"><a>当儿子问：“妈妈，你为什么要我努力读书？”这回 答是我见过最赞的</a>
+                <p class="time">2017-11-26</p>
+            </h3>
+            <a href="#">
+                <ul class="img-list">
+                    <li><img src="./assets/images/pic-02.jpg"></li>
+                    <li><img src="./assets/images/pic-02.jpg"></li>
+                    <li><img src="./assets/images/pic-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+        
+
+        <div class="rmlist">
+            <ul>
+                <li>
+                    <a href="#" class="box">
+                        <span><img src="./assets/images/pic-03.jpg"></span>
+                        <div>
+                            <h5 href="#">TFBOYS成员王源谈乡村教育不能让受教育成为奢侈</h5>
+                            <em>2017-11-26</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="box">
+                        <span><img src="./assets/images/pic-03.jpg"></span>
+                        <div>
+                            <h5 href="#">TFBOYS成员王源谈乡村教育不能让受教育成为奢侈</h5>
+                            <em>2017-11-26</em>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="box">
+                        <span><img src="./assets/images/pic-03.jpg"></span>
+                        <div>
+                            <h5 href="#">TFBOYS成员王源谈乡村教育不能让受教育成为奢侈</h5>
+                            <em>2017-11-26</em>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+    <footer class="footer"></footer>
+
+    <!-- Swiper JS -->
+    <script src="./assets/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container-a', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+</body>
+
+</html>

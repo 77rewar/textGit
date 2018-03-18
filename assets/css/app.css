@@ -1,0 +1,198 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    height: 0.9rem;
+    background: #fe6d6a;
+}
+.main {
+    flex: 1;
+    height: 0;
+    overflow-y: scroll;
+}
+.footer {
+    height: 1rem;
+    background: #fe6d6a;
+    z-index: 99;    
+}
+.header span::before{
+    font-size: 0.5rem;
+    line-height: 0.9rem;
+    position: absolute;
+    margin-left: .1rem;
+}
+.header p{
+    text-align: center;
+    line-height: .9rem;
+    font-size: .5rem;
+}
+
+/* swiper */
+.swiper-slide > img{
+    max-width: 100%;
+}
+.swiper-pagination-bullet-active{
+    background: #fe6d6a;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0 2px;
+}
+.swiper-pagination > span{
+    border-radius: 0;
+    width: .3rem;
+    height: 2px;
+}
+
+/* 内容 */
+.l1{
+    /* height: 2.7rem; */
+    width: 100%;
+    padding: 0 0.3rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+.l1 h3{
+    position: relative;
+    margin-bottom: .2rem;
+}
+.l1  .title{
+    font-size: .3rem;
+    text-align: left;
+    line-height: .4rem;
+    height: .8rem;
+}
+.l1  .time{
+    font-size: .2rem;
+    position: absolute;
+    top:.4rem;
+    right: 0;
+}
+.l1 > img{
+    max-width: 100%;
+}
+.l1 .img-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: .1rem;
+}
+.l1 .img-list li{
+    flex: 1;
+    margin-right: .1rem;
+}
+.l1 .img-list li:last-of-type{
+    margin-right: 0;
+}
+.l1 .img-list li img{
+    width: 100%;
+}
+
+.rmlist ul li{
+    padding: 0 .3rem;
+    padding-top: .2rem;
+}
+.rmlist ul li .box{
+    display: flex;
+    flex-direction: row;
+}
+.rmlist ul li .box span {
+    flex: 1;
+    padding-right: .3rem;
+}
+.rmlist ul li .box span img{
+    width: 100%;
+}
+.rmlist ul li .box div{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.rmlist ul li .box div h5{
+    font-size: .3rem;
+    line-height: .4rem;
+    /* flex: 3; */
+}
+.rmlist ul li .box div em{
+    font-size: .1rem;
+    /* flex: 1; */
+    text-align: right;
+}
+
+
+
+
+/* iScroll */
+nav {
+    height: 0.8rem;
+    position: relative;
+    overflow: hidden;
+}
+nav ul{
+    height: 0.8rem;
+    white-space: nowrap;
+    position: absolute;
+}
+nav ul li{
+    display: inline-block;
+    vertical-align: top;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: .24rem;
+    padding: 0 .5rem;
+}
+nav ul li.selected{
+    border-bottom: 2px solid #fe6d6a;
+}
+
+
+/* shopList */
+#shopList {
+    width: 7.5rem;
+    left: 0;
+    top: 1.8rem;
+    overflow: hidden;
+    margin-top: 0.25rem;
+    opacity: 1;
+    transition: all .5s ease-in;
+}
+
+#shopList.move {
+    opacity: 0.5;
+    margin-top: 2rem;
+}
+#shopList ul li{
+    width: 100%;
+    height: 2.8rem;
+    background: greenyellow;
+    z-index: 1;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.2rem 0.24rem;
+    overflow: hidden;
+}
+#shopList ul li a{
+    display: flex;
+    width: 100%;
+}
+#shopList ul li a .listPic{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+#shopList ul li a .listPic img{
+    width: 100%;
+}
+#shopList ul li .listTitle{
+    display: flex;
+    padding-left: .25rem;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:1;
+}
+#shopList ul li .listTitle h5{
+    font-size: .24rem;
+    line-height: .45rem;
+}
+#shopList ul li .listTitle em{
+    font-size: .34rem;
+    color: red;
+}
